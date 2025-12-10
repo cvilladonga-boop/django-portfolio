@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Portfolio</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f5f7fa;
+        }
+
+        .header {
+            background: #1a73e8;
+            padding: 40px;
+            text-align: center;
+            color: white;
+        }
+
+        .container {
+            width: 85%;
+            margin: auto;
+            margin-top: 30px;
+        }
+
+        h1, h2 {
+            margin-bottom: 15px;
+        }
+
+        /* SKILLS DESIGN */
+        .skills-box, .details-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+        }
+
+        .skill {
+            background: #f0f0f0;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        /* PROJECTS DESIGN */
+        .project {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 0 8px rgba(0,0,0,0.1);
+        }
+
+        img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        a {
+            color: #1a73e8;
+            font-weight: bold;
+            text-decoration: none;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+    <h1>My Portfolio</h1>
+    <p>Cedrick Villadonga</p>
+</div>
+
+<div class="container">
+
+    <!-- SKILLS SECTION -->
+    <h2>Skills</h2>
+    <div class="skills-box">
+
+        {% if skills|length == 0 %}
+            <!-- RANDOM SAMPLE SKILLS -->
+            <div class="skill">Ride — 90%</div>
+            <div class="skill">Gaming on pc — 85%</div>
+            <div class="skill">Gaming on mobile — 75%</div>
+            <div class="skill">School — 70%</div>
+        {% else %}
+            {% for s in skills %}
+                <div class="skill">{{ s.name }} — {{ s.level }}%</div>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <!-- SIMPLE DETAILS SECTION -->
+    <h2>Details</h2>
+    <div class="details-box">
+        <p>Hello! I am <b>Cedrick Villadonga</b>, and this portfolio showcases my skills, hobbies, and personal growth as a student and developer.</p>
+        <p>I enjoy learning new technologies, playing games, riding, and improving myself through new experiences.</p>
+        <p>This portfolio is built using <b>Django</b> and designed to be simple, clean, and easy to navigate.</p>
+    </div>
+
+</div>
+
+</body>
+</html>
